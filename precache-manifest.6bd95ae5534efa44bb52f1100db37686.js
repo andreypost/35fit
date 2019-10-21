@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "25c41e0221fe67fb08eca91f307c081b",
+    "revision": "06a2796af080fbd14ae79aeb3fe5cb28",
     "url": "/my-react-app/index.html"
   },
   {
-    "revision": "95e5cbdf3c6b50446660",
-    "url": "/my-react-app/static/css/main.541505b7.chunk.css"
+    "revision": "5ac6f495024db561b190",
+    "url": "/my-react-app/static/css/main.d5f979d8.chunk.css"
   },
   {
     "revision": "719703df069d01d9dedc",
     "url": "/my-react-app/static/js/2.087d5240.chunk.js"
   },
   {
-    "revision": "95e5cbdf3c6b50446660",
-    "url": "/my-react-app/static/js/main.ba246e12.chunk.js"
+    "revision": "5ac6f495024db561b190",
+    "url": "/my-react-app/static/js/main.07f7210f.chunk.js"
   },
   {
     "revision": "07add1d6cd3da92baf78",
@@ -26,10 +26,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "ade91f473255991f410f61857696434b",
     "url": "/my-react-app/static/media/Montserrat-Bold.ade91f47.ttf"
-  },
-  {
-    "revision": "c8b6e083af3f94009801989c3739425e",
-    "url": "/my-react-app/static/media/Montserrat-Medium.c8b6e083.ttf"
   },
   {
     "revision": "ee6539921d713482b8ccd4d0d23961bb",
