@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5135135ea81c1149257fc4b5c7257836",
+    "revision": "79a0d3868bf41f548f8e870058f19232",
     "url": "/my-react-app/index.html"
   },
   {
-    "revision": "0cc3e0f26ea2119c39aa",
+    "revision": "b47eb5657ac308d09fbb",
     "url": "/my-react-app/static/css/main.e0ddd30f.chunk.css"
   },
   {
-    "revision": "d45242909a9584e48a34",
-    "url": "/my-react-app/static/js/2.0b14679e.chunk.js"
+    "revision": "42b36252ee97d8edda06",
+    "url": "/my-react-app/static/js/2.3d2917fd.chunk.js"
   },
   {
-    "revision": "0cc3e0f26ea2119c39aa",
-    "url": "/my-react-app/static/js/main.468d1af0.chunk.js"
+    "revision": "b47eb5657ac308d09fbb",
+    "url": "/my-react-app/static/js/main.98eb9d98.chunk.js"
   },
   {
     "revision": "07add1d6cd3da92baf78",
@@ -92,6 +92,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/my-react-app/static/media/add_3_2.31cbaecf.png"
   },
   {
+    "revision": "29e549d3f4de30391eedef53b234e5a7",
+    "url": "/my-react-app/static/media/add_5_1.29e549d3.png"
+  },
+  {
     "revision": "5c5199109f79066597dad9e3fbf6131b",
     "url": "/my-react-app/static/media/banner_bg_1.5c519910.png"
   },
@@ -150,6 +154,30 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "793e8419350f298e526a1f17b45a59c2",
     "url": "/my-react-app/static/media/p_2_4.793e8419.png"
+  },
+  {
+    "revision": "935e57c522bc673c5e54ec7e9797fc08",
+    "url": "/my-react-app/static/media/p_5_1.935e57c5.png"
+  },
+  {
+    "revision": "9576882acc50de7c5e4232012fc4891f",
+    "url": "/my-react-app/static/media/p_5_2.9576882a.png"
+  },
+  {
+    "revision": "ec2c465f4b52840551eab2b4d4dddbc9",
+    "url": "/my-react-app/static/media/p_5_3.ec2c465f.png"
+  },
+  {
+    "revision": "b33bcc3523efbd109a7c929b2d139929",
+    "url": "/my-react-app/static/media/p_5_4.b33bcc35.png"
+  },
+  {
+    "revision": "e2ce55de4d588f52e3c70a4f445bcb7c",
+    "url": "/my-react-app/static/media/p_5_5.e2ce55de.png"
+  },
+  {
+    "revision": "72c105632e7861c7a11092ff7eebafe2",
+    "url": "/my-react-app/static/media/p_5_6.72c10563.png"
   },
   {
     "revision": "2907e722314ce6c68cf40362dd0ddb97",
