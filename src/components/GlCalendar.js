@@ -1,0 +1,391 @@
+/* eslint-disable eqeqeq */
+import React from 'react';
+import photo_1 from '../images/icons/icon_4_2.png';
+import photo_2 from '../images/icons/icon_4_1.png';
+
+class GlCalendar extends React.Component {
+	componentDidMount() {
+		let currentModal = null
+		const showModal = (modal) => {
+			if (currentModal) {
+				hideModal(currentModal)
+				currentModal = null
+			}
+			let width = document.documentElement.clientWidth
+			document.body.style.overflow = 'hidden'
+			document.body.style.paddingRight = document.documentElement.clientWidth - width + 'px'
+			currentModal = modal
+			currentModal.style.display = 'block'
+			currentModal.onclick = (ev) => {
+				let target = ev.target.closest('.closeButtGl')
+				if (!target) return
+				if (target.classList == 'closeButtGl') {
+					hideModal(currentModal)
+				}
+			}
+			document.addEventListener('keydown', (ev) => {
+				if (ev.key == 'Escape') {
+					hideModal(currentModal)
+				}
+			})
+			document.addEventListener('click', (ev) => {
+				if (ev.target == currentModal) {
+					hideModal(currentModal)
+				}
+			})
+		}
+		const hideModal = (modal) => {
+			modal.style.display = 'none'
+			document.body.style.overflow = ''
+			document.body.style.overflowY = ''
+			document.body.style.paddingRight = 0 + 'px'
+		}
+		let calendarGl = document.querySelector('.calendarGl')
+		let contDeskTabl = calendarGl.querySelector('.contCalenDeskGl')
+		let contMobTable = document.querySelector('.calenMobGl')
+		let changeMonGl = document.getElementById('changeMonGl')
+
+		let now = new Date()
+		let year = new Date().getFullYear()
+		let month = new Date().getMonth()
+		let date = new Date().getDate()
+		let arrMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+		const calendarMob = (container) => {
+			if (!container) return
+			container.innerHTML = ''
+			let blocks = document.querySelector('.blockDateGl')
+			let arrDay = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
+
+			let currentYear = new Date(year, month)
+			let dd = currentYear.getDate()
+			let lastD = new Date(year, month + 1, 0).getDate()
+
+			const setBlocks = () => {
+				if (year == new Date().getFullYear() &&
+					month == new Date().getMonth()) {
+					for (let j = date, i = 0; j <= lastD; j++) {
+						container.append(blocks.cloneNode(true))
+						container.querySelectorAll('.dateStJs')[i].innerHTML = j
+						container.querySelectorAll('.dayStJs')[i].innerHTML = arrDay[getD(now)]
+						arrDay.push(arrDay.shift())
+						document.querySelector('.dateModGl').innerHTML = j
+						container.querySelectorAll('.iconCalenMobGl')[i].dataset.turn = 'on'
+						container.querySelectorAll('.iconCalenMobGl')[i].dataset.number = j
+						showModClockChoose(container.querySelectorAll('.iconCalenMobGl')[i], j)
+						i++
+					}
+				} else {
+					for (let j = dd, i = 0; j <= lastD; j++) {
+						container.append(blocks.cloneNode(true))
+						container.querySelectorAll('.dateStJs')[i].innerHTML = j
+						container.querySelectorAll('.dayStJs')[i].innerHTML = arrDay[getD(currentYear)]
+						arrDay.push(arrDay.shift())
+						document.querySelector('.dateModGl').innerHTML = j
+						container.querySelectorAll('.iconCalenMobGl')[i].dataset.turn = 'on'
+						container.querySelectorAll('.iconCalenMobGl')[i].dataset.number = j
+						showModClockChoose(container.querySelectorAll('.iconCalenMobGl')[i], j)
+						i++
+					}
+				}
+
+			}
+			setBlocks()
+			document.getElementById('loadDatesGl').onclick = (ev) => {
+				ev.preventDefault()
+				container.classList.toggle('showMoreDates')
+				document.body.classList.toggle('overHid')
+				document.querySelector('.firstTxGl').classList.toggle('showTextGl')
+				document.querySelector('.lastTxGl').classList.toggle('showTextGl')
+			}
+		}
+		const createCalendar = (container) => {
+			if (!container) return
+			let d = new Date(year, month)
+			let table = '<table><tr><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th><th>S</th></tr><tr>'
+			for (let i = 0; i < getD(d); i++) {
+				table += '<td></td>'
+			}
+			let num = 1
+			while (d.getMonth() == month) {
+				table += '<td>' + num + '</td>'
+				if (getD(d) % 7 == 6) {
+					table += '</tr><tr>'
+				}
+				d.setDate(d.getDate() + 1)
+				num++
+			}
+			if (getD(d) != 0) {
+				for (let i = getD(d); i < 7; i++) {
+					table += '<td></td>'
+				}
+			}
+			table += '</tr></table>'
+			container.innerHTML = table
+			setGreyColorTd(container)
+		}
+		const getD = (d) => {
+			let day = d.getDay()
+			if (day == 0) day = 7
+			return day - 1;
+		}
+		const setM = (month) => {
+			let mString = arrMonths[month]
+			let monL = document.querySelectorAll('.monthStJs')
+			for (let i = 0; i < monL.length; i++) {
+				monL[i].innerHTML = mString
+			}
+		}
+		const setY = (year) => {
+			let yL = document.querySelectorAll('.yearStJs')
+			for (let i = 0; i < yL.length; i++) {
+				yL[i].innerHTML = year
+			}
+		}
+		const setGreyColorTd = (elem) => {
+			let td = elem.querySelectorAll('td')
+			if (!td) return
+			let num = 1
+			for (let i = 0; i < td.length; i++) {
+				if (td[i].innerHTML) {
+					td[i].dataset.number = num++
+					if (year == new Date().getFullYear() &&
+						month == new Date().getMonth() &&
+						td[i].innerHTML < new Date().getDate()) {
+						td[i].style.color = 'grey'
+					} else {
+						td[i].dataset.turn = 'on'
+						hoverTd(td[i])
+						showModClockChoose(td[i], td[i].innerHTML)
+					}
+				}
+			}
+		}
+		const hoverTd = (td) => {
+			let textTd = document.querySelector('.txFirstTdGl').cloneNode(true)
+			// let h3 = textTd.querySelector('h3')
+			let currTd = null
+			td.onmouseover = () => {
+				if (td.dataset.turn == 'off') return
+				if (currTd) return
+				currTd = td
+				td.classList.add('onHoverTdGl')
+				textTd.style.display = 'flex'
+				// if (client_id === '') {
+				// h3.style.visibility = 'hidden';
+				// }
+				td.append(textTd)
+			}
+			td.onmouseout = (ev) => {
+				if (currTd) {
+					if (!ev.relatedTarget || !td.contains(ev.relatedTarget)) {
+						td.classList.remove('onHoverTdGl')
+						textTd.style.display = 'none'
+						currTd = null
+					}
+				}
+			}
+		}
+		const showModClockChoose = (td, ddMod) => {
+			let arrWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+			let modal = document.getElementById('modCalenGl')
+			let content = modal.querySelector('.modCalenContGl')
+			// let h3 = content.querySelector('h3')
+			// if (client_id === '') {
+			// h3.style.visibility = 'hidden';
+			// }
+			td.onclick = (ev) => {
+				if (td.dataset.turn == 'off') return
+				document.querySelector('.dateModGl').innerHTML = ddMod
+				document.querySelector('.weekSetGl').innerHTML = arrWeek[new Date(year, month, ddMod).getDay()]
+				showModal(modal)
+
+				content.onclick = (ev) => {
+					let target = ev.target.closest('.plusHrGl,.minusHrGl,.plusMinGl,.minusMinGl,.closeGl,#selectTmGl')
+					if (!target) return
+					let hour = +content.querySelector('.hourGl').innerHTML
+					let min = +content.querySelector('.minGl').innerHTML
+					if (target.classList == 'plusHrGl') {
+						hour += 1
+						if (hour > 23) return
+						if (hour < 10) hour = '0' + hour
+						target.nextElementSibling.innerHTML = hour
+					} else if (target.classList == 'minusHrGl') {
+						hour -= 1
+						if (hour < 0) return
+						if (hour < 10) hour = '0' + hour
+						target.previousElementSibling.innerHTML = hour
+					} else if (target.classList == 'plusMinGl') {
+						min += 30
+						if (min > 30) min = '00'
+						target.nextElementSibling.innerHTML = min
+					} else if (target.classList == 'minusMinGl') {
+						min -= 30
+						if (min < 0) min = 30
+						if (min == 0) min = '0' + min
+						target.previousElementSibling.innerHTML = min
+					} else if (target.id == 'selectTmGl') {
+						// var reserve_start = new Date(year, month, ddMod, hour, min);
+						setTdVisited(td)
+						hideModal(modal)
+						// if (window.location.href.includes('reserve_choose_time') || window.location.href.includes('schedule')|| window.location.href.includes('main')) {
+
+						// var lang = window.location.pathname.split('/')[1];
+
+						// if (client_id !== '') {
+						// window.location.assign('/'+lang+'/reserve_choose_time/create_reserve?reserve_start='+encodeURIComponent(reserve_start));
+						// } else {
+						// window.location.assign('/'+lang+'/reserve_identity?reserve_start='+encodeURIComponent(reserve_start));
+						// }
+
+					} else if (target.classList == 'closeGl') {
+						hideModal(modal)
+					}
+					document.addEventListener('keydown', (ev) => {
+						if (ev.key == 'Escape') {
+							hideModal(modal)
+						}
+					})
+					document.addEventListener('click', (ev) => {
+						if (ev.target == modal) {
+							hideModal(modal)
+						}
+					})
+				}
+			}
+		}
+		const setTdVisited = (td) => {
+			let secondTxTd = document.querySelector('.txSecondTdGl').cloneNode(true)
+			secondTxTd.style.display = 'flex'
+			for (let item of calendarGl.querySelectorAll('[data-number]')) {
+				if (td.dataset.number == item.dataset.number) {
+					if (item.classList == 'iconCalenMobGl') {
+						item.parentNode.querySelector('h3').classList.add('darkblue')
+						item.parentNode.querySelector('p').style.fontWeight = 'bold'
+					} else {
+						item.append(secondTxTd)
+					}
+					item.dataset.turn = 'off'
+				}
+			}
+		}
+		let countMonth = 0
+		changeMonGl.onclick = (ev) => {
+			let target = ev.target.closest('.minusMonGl, .plusMonGl')
+			if (!target) return
+			if (target.classList == 'minusMonGl') {
+				if (month <= new Date().getMonth() && year == new Date().getFullYear()) return
+				month -= 1
+				if (month < 0 && year != new Date().getFullYear()) {
+					month = 11
+					year -= 1
+				}
+				countMonth--
+			} else if (target.classList == 'plusMonGl' && countMonth < 6) {
+				month += 1
+				if (month > 11) {
+					month = 0
+					year += 1
+				}
+				countMonth++
+			}
+			if (month > new Date().getMonth() && year == new Date().getFullYear()) {
+				document.querySelector('.minusMonGl').style.background = 'url(' + photo_1 + ')';
+				document.querySelector('.minusMonGl').style.transform = 'rotate(0.5turn)';
+			} else if (month == new Date().getMonth() && year == new Date().getFullYear()) {
+				document.querySelector('.minusMonGl').style.background = 'url(' + photo_2 + ')';
+				document.querySelector('.minusMonGl').style.transform = 'rotate(0)';
+			}
+			setY(year)
+			setM(month)
+			createCalendar(contDeskTabl)
+			calendarMob(contMobTable)
+		}
+		setY(year)
+		setM(month)
+		createCalendar(contDeskTabl)
+		calendarMob(contMobTable)
+	}
+	render() {
+		return (
+			<div>
+				<section className="calendarGl">
+					<article id="onTopGl" className="flex wrap">
+						<div className="flex" id="changeMonGl">
+							<i className="minusMonGl"></i>
+							<h3 className="monthStJs"> </h3>
+							<h3 className="yearStJs"> </h3>
+							<i className="plusMonGl"></i>
+						</div>
+						<div className="gonsioriGl alignLf">
+							<p className="relative"><span></span>Gonsiori 33<br /><span> Tallinn, Estonia</span></p>
+						</div>
+					</article>
+					<div className="contCalenDeskGl"></div>
+					<div className="calenMobGl"></div>
+					<a href="#onTopGl" id="loadDatesGl" className="margTop alignCtr">
+						<button className="white"><span className="firstTxGl">Load more dates</span><span className="lastTxGl">Hide dates</span></button>
+					</a>
+				</section>
+				<div id="modCalenGl">
+					<div className="column alignCtr modCalenContGl shadow relative">
+						<div className="flex">
+							<div className="monDatGl one">
+								<h6 className="weekSetGl"> </h6>
+								<h5 className="monthStJs"> </h5>
+								<h2 className="dateModGl"> </h2>
+								<div className="closeGl">
+									<i className="closeButtGl"></i>
+								</div>
+							</div>
+							<div className="bestTrainGl flex one">
+								<h3 className="alignLf four">Your best day for training</h3>
+							</div>
+						</div>
+						<div className="flex">
+							<div className="chooseGl one">
+								<p>Choose time</p>
+								<div className="flex">
+									<h4 className="column"><span className="plusHrGl"></span><span className="hourGl">19</span><span className="minusHrGl"></span></h4>
+									<h5>:</h5>
+									<h4 className="column"><span className="plusMinGl"></span><span className="minGl">00</span><span className="minusMinGl"></span></h4>
+								</div>
+								<i id="selectTmGl" className="green">Select</i>
+							</div>
+							<div className="peopleIconGl column one">
+								<i></i>
+								<div>
+									<h3>5 <span>of 12</span></h3>
+									<p>people have booked this time</p>
+								</div>
+							</div>
+						</div>
+						<div className="closeGl">
+							<i className="closeButtGl"></i>
+						</div>
+					</div>
+				</div>
+				<div className="flex blockDateGl">
+					<h6 className="dayStJs"> </h6>
+					<h3 className="dateStJs"> </h3>
+					<p className="monthStJs"> </p>
+					<i className="iconCalenMobGl"></i>
+				</div>
+				<div className="txFirstTdGl column">
+					<i className="selfStart"></i>
+					<h3 className="alignLf">A very good day!</h3>
+					<h6>Choose time</h6>
+				</div>
+				<div className="txSecondTdGl column">
+					<i className="selfStart"></i>
+					<h3 className="alignLf">Your best day for training</h3>
+				</div>
+				<div className="txThirdTdGl column">
+					<i className="selfStart"></i>
+					<h3 className="alignLf">Bit longer rest. But OK</h3>
+				</div>
+			</div>
+		);
+	}
+}
+export default GlCalendar;
