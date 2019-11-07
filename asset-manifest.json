@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/my-react-app/static/css/main.8b0e8741.chunk.css",
-    "main.js": "/my-react-app/static/js/main.46ea0d27.chunk.js",
-    "main.js.map": "/my-react-app/static/js/main.46ea0d27.chunk.js.map",
+    "main.css": "/my-react-app/static/css/main.b786760d.chunk.css",
+    "main.js": "/my-react-app/static/js/main.07ed69c1.chunk.js",
+    "main.js.map": "/my-react-app/static/js/main.07ed69c1.chunk.js.map",
     "runtime-main.js": "/my-react-app/static/js/runtime-main.41c2fd6d.js",
     "runtime-main.js.map": "/my-react-app/static/js/runtime-main.41c2fd6d.js.map",
-    "static/js/2.697a5227.chunk.js": "/my-react-app/static/js/2.697a5227.chunk.js",
-    "static/js/2.697a5227.chunk.js.map": "/my-react-app/static/js/2.697a5227.chunk.js.map",
+    "static/js/2.08d6f331.chunk.js": "/my-react-app/static/js/2.08d6f331.chunk.js",
+    "static/js/2.08d6f331.chunk.js.map": "/my-react-app/static/js/2.08d6f331.chunk.js.map",
     "index.html": "/my-react-app/index.html",
-    "precache-manifest.e91e8e5d3c4a4bbfc83ae18d8b229b90.js": "/my-react-app/precache-manifest.e91e8e5d3c4a4bbfc83ae18d8b229b90.js",
+    "precache-manifest.93086bddcf1f635ad4cb38aa4199c7dd.js": "/my-react-app/precache-manifest.93086bddcf1f635ad4cb38aa4199c7dd.js",
     "service-worker.js": "/my-react-app/service-worker.js",
-    "static/css/main.8b0e8741.chunk.css.map": "/my-react-app/static/css/main.8b0e8741.chunk.css.map",
+    "static/css/main.b786760d.chunk.css.map": "/my-react-app/static/css/main.b786760d.chunk.css.map",
     "static/media/index.css": "/my-react-app/static/media/pattern_bg_4_1.38920e90.png",
     "static/media/add_1_1.png": "/my-react-app/static/media/add_1_1.01360a5f.png",
     "static/media/add_1_2.png": "/my-react-app/static/media/add_1_2.f442cf82.png",
@@ -26,6 +26,8 @@
     "static/media/add_2_8.png": "/my-react-app/static/media/add_2_8.8429e4e5.png",
     "static/media/add_3_1.png": "/my-react-app/static/media/add_3_1.cf69320d.png",
     "static/media/add_3_2.png": "/my-react-app/static/media/add_3_2.31cbaecf.png",
+    "static/media/add_4_1.png": "/my-react-app/static/media/add_4_1.f9d4ee98.png",
+    "static/media/add_4_2.png": "/my-react-app/static/media/add_4_2.1dd93e9f.png",
     "static/media/add_5_1.png": "/my-react-app/static/media/add_5_1.29e549d3.png",
     "static/media/add_5_2.png": "/my-react-app/static/media/add_5_2.06ceafc1.png",
     "static/media/add_5_3.png": "/my-react-app/static/media/add_5_3.d2e0c1dd.png",
@@ -47,8 +49,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.41c2fd6d.js",
-    "static/js/2.697a5227.chunk.js",
-    "static/css/main.8b0e8741.chunk.css",
-    "static/js/main.46ea0d27.chunk.js"
+    "static/js/2.08d6f331.chunk.js",
+    "static/css/main.b786760d.chunk.css",
+    "static/js/main.07ed69c1.chunk.js"
   ]
 }
