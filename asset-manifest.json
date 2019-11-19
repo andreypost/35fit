@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/35fit/static/css/main.94b779f0.chunk.css",
-    "main.js": "/35fit/static/js/main.f8ad864d.chunk.js",
-    "main.js.map": "/35fit/static/js/main.f8ad864d.chunk.js.map",
+    "main.js": "/35fit/static/js/main.99a548a7.chunk.js",
+    "main.js.map": "/35fit/static/js/main.99a548a7.chunk.js.map",
     "runtime-main.js": "/35fit/static/js/runtime-main.aaa02848.js",
     "runtime-main.js.map": "/35fit/static/js/runtime-main.aaa02848.js.map",
     "static/js/2.b81d8803.chunk.js": "/35fit/static/js/2.b81d8803.chunk.js",
     "static/js/2.b81d8803.chunk.js.map": "/35fit/static/js/2.b81d8803.chunk.js.map",
     "index.html": "/35fit/index.html",
-    "precache-manifest.3c0dd368b2115a5506a7ae6da19b05cc.js": "/35fit/precache-manifest.3c0dd368b2115a5506a7ae6da19b05cc.js",
+    "precache-manifest.0cf644efd94e4bb5493875f80aa69807.js": "/35fit/precache-manifest.0cf644efd94e4bb5493875f80aa69807.js",
     "service-worker.js": "/35fit/service-worker.js",
     "static/css/main.94b779f0.chunk.css.map": "/35fit/static/css/main.94b779f0.chunk.css.map",
     "static/media/index.css": "/35fit/static/media/pattern_bg_4_1.38920e90.png",
@@ -55,6 +55,6 @@
     "static/js/runtime-main.aaa02848.js",
     "static/js/2.b81d8803.chunk.js",
     "static/css/main.94b779f0.chunk.css",
-    "static/js/main.f8ad864d.chunk.js"
+    "static/js/main.99a548a7.chunk.js"
   ]
 }
