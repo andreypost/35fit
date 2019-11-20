@@ -1,23 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bce0c8ea152c0d3e6a057ae915938fd6",
+    "revision": "1b04f2fda694b1ae66dce1a9112116f7",
     "url": "/35fit/index.html"
   },
   {
-    "revision": "09f866623589cdb9dfaa",
+    "revision": "733f3fefd39ca83ea556",
     "url": "/35fit/static/css/main.2d165525.chunk.css"
   },
   {
-    "revision": "8a69db87ab70743067d3",
-    "url": "/35fit/static/js/2.b81d8803.chunk.js"
+    "revision": "3d6f93927ee851acddc1",
+    "url": "/35fit/static/js/0.2dad3ddd.chunk.js"
   },
   {
-    "revision": "09f866623589cdb9dfaa",
-    "url": "/35fit/static/js/main.372b000a.chunk.js"
+    "revision": "30d82805e4c84937e10e",
+    "url": "/35fit/static/js/3.1e7bd472.chunk.js"
   },
   {
-    "revision": "fc2cca016267cd6fe5c1",
-    "url": "/35fit/static/js/runtime-main.aaa02848.js"
+    "revision": "733f3fefd39ca83ea556",
+    "url": "/35fit/static/js/main.3aaa467f.chunk.js"
+  },
+  {
+    "revision": "4d426b31bdb47dd0dd32",
+    "url": "/35fit/static/js/runtime-main.0a487638.js"
   },
   {
     "revision": "27e3649bab7c62fa21b8837c4842e40e",

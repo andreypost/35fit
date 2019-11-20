@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/data.js"],"names":["data","userTime"],"mappings":"+FAAA,4CAAO,IAAMA,EAAO,CAChBC,SAAU","file":"static/js/0.2dad3ddd.chunk.js","sourcesContent":["export const data = {\r\n    userTime: '-- / --'\r\n}"],"sourceRoot":""}
