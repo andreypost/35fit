@@ -1,36 +1,38 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import article from './articles';
-import { GlTopNav } from './components/GlTopNav';
-import GlSetRateLine from './components/GlSetRateLine';
-import { GlSetImgText } from './components/GlSetImgText';
+import { NavigationGl } from './components/NavigationGl';
+import SetRateLineGl from './components/SetRateLineGl';
+import { SetImgTextGl } from './components/SetImgTextGl';
 import photo_1 from './images/add/add_1_1.png';
 import photo_2 from './images/add/add_1_2.png';
 import photo_3 from './images/add/add_1_3.png';
-import { GlGreenLine } from './components/GlGreenLine';
+import { GreenLineGl } from './components/GreenLineGl';
 import line_1 from './images/pattern/pattern_bg_1_3.png';
-import GlCalendar from './components/GlCalendar';
-import { GlCommunity } from './components/GlCommunity';
-import { GlBannerBottom } from './components/GlBannerBottom';
-import { GlFooter } from './components/GlFooter';
-import JsGlobalModals from "./components/JsGlobalModals";
+import CalendarGl from './components/CalendarGl';
+import { CommunityGl } from './components/CommunityGl';
+import { BannerBottomGl } from './components/BannerBottomGl';
+import { FooterGl } from './components/FooterGl';
+import ModalsGl from "./components/ModalsGl";
+// import { ThemeContext } from './theme-context';
 
-class PageMain extends React.Component {
+export default class Main extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0)
   }
   render() {
+    // console.log(this.context)
     return (
-      <div>
+      <>
         <header className="headAq">
-          <GlTopNav />
+          <NavigationGl />
           <article className="headGroupAq">
             <section>
               <article className=" flex">
                 <hgroup>
                   <h1>{article[0].title_01}</h1>
                   <h5 className="darkblue"><span></span>NEW STANDART</h5>
-                  <h1 className="monthAq">35 <span>€</span><span>/ MONTH</span></h1>
+                  <h1 className="monthAq">35 <span>€</span><span>/MONTH</span></h1>
                 </hgroup>
               </article>
             </section>
@@ -44,7 +46,7 @@ class PageMain extends React.Component {
                   <i className="announce"></i>
                   <h2>17<span>€</span></h2>
                   <h4>3 classes</h4>
-                  <Link to="/schedule" className="buttBanGreen">Register trial</Link>
+                  <Link to="/reserve_choose" className="buttBanGreen">Register trial</Link>
                 </div>
                 <div className="column bannerBookAq shadow">
                   <h3>Connected<br />to Results</h3>
@@ -53,13 +55,15 @@ class PageMain extends React.Component {
               </div>
               <div className="bannerNumAq shadow">
                 <h4>Number of memberships is limited!</h4>
-                <GlSetRateLine />
+                <SetRateLineGl />
                 <p className="soldGl"><span>{article[2].member}</span>% SOLD</p>
               </div>
             </article>
           </section>
           <section>
-            <GlSetImgText articulos={[article[0].title_01, '', article[1].text_01]} foto={photo_1} link={'/training'} />
+            <SetImgTextGl articulos={[article[0].title_01, '', article[1].text_01]} foto={photo_1}>
+              <Link to='/training' className="white">Discover more</Link>
+            </SetImgTextGl>
             <div className="flex wrap iconsAq">
               <div>
                 <i></i>
@@ -75,36 +79,40 @@ class PageMain extends React.Component {
               </div>
             </div>
           </section>
-          <GlGreenLine modelo={line_1} />
+          <GreenLineGl modelo={line_1} />
           <section>
             <article className="margBot wowAq">
               <hgroup>
                 <h2>{article[0].title_01}</h2>
-                <h1><span></span>35<span>€</span><span> /MONTH</span></h1>
+                <h1><span></span>35 <span>€</span><span>/MONTH</span></h1>
               </hgroup>
               <h2>How is it possible now?</h2>
             </article>
-            <GlSetImgText articulos={['', article[0].title_08, article[1].text_02]} foto={photo_2} link={'/training'} />
-            <GlSetImgText articulos={['', article[0].title_09, article[1].text_03]} foto={photo_3} clase="orderTwo" link={'/training'} />
+            <SetImgTextGl articulos={['', article[0].title_08, article[1].text_02]} foto={photo_2}>
+              <Link to='/training' className="white">Discover more</Link>
+            </SetImgTextGl>
+            <SetImgTextGl articulos={['', article[0].title_09, article[1].text_03]} foto={photo_3} clase="orderTwo">
+              <Link to='/training' className="white">Discover more</Link>
+            </SetImgTextGl>
             <div className="flex wrap alignLf pickAq">
               <h2>Pick a day and give it a try!</h2>
               <h5>{article[1].text_04}</h5>
             </div>
           </section>
-          <GlCalendar />
+          <CalendarGl />
           <section>
             <h4 className="nextWeekGl">or you are coming next week?</h4>
             <Link to="/schedule" className="white">View all schedule</Link>
           </section>
-          <GlGreenLine modelo={line_1} />
-          <GlCommunity articulos={article[1]} />
-          <GlBannerBottom clase={['announce margAnnAq', '']}
+          <GreenLineGl modelo={line_1} />
+          <CommunityGl articulos={[article[4].community_s, article[4].community_e, article[1].text_04]} />
+          <BannerBottomGl clase={['announce margAnnAq', '']}
             articulos={['', '', article[2].bunn_01, article[2].price_01, article[2].class_01]} />
         </main>
-        <GlFooter />
-        <JsGlobalModals pathname={this.props.history.location.pathname} />
-      </div>
+        <FooterGl />
+        <ModalsGl pathname={this.props.history.location.pathname} />
+      </>
     );
   }
 }
-export default PageMain;
+// Main.contextType = ThemeContext

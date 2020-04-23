@@ -1,169 +1,117 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
+import { HashRouter, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Route} from "react-router-dom";
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './normalize.css';
 import './index.css';
-import { App } from './App';
+// import { StateUsage } from './StateUsage.js';
 
+import Main from './Main';
+import Training from './Training';
+import Pricing from './Pricing';
+import Schedule from './Schedule';
+import Team from './Team';
+import Coach_Joyce from './Coach_Joyce';
+import Coach_John from './Coach_John';
+import Coach_Samantha from './Coach_Samantha';
+import Coach_Cameron from './Coach_Cameron';
+import Coach_Marvin from './Coach_Marvin';
+import Coach_Kayla from './Coach_Kayla';
+import Club from './Club';
+import Blog from './Blog';
+import Blog_Article from './Blog_Article';
+import Faq from './Faq';
+import Reserve_Choose from './Reserve_Choose';
+import Reserve_Identify from './Reserve_Identify';
+import Reserve_Member from './Reserve_Member';
+import Dash_Profile from './Dash_Profile';
 
+const App = () => {
+  return (
+    <HashRouter basename='/'>
+        <Route exact path="/" component={Main} />
+        <Route path="/training" component={Training} />
+        <Route path="/pricing" component={Pricing} />
+        <Route path="/schedule" component={Schedule} />
+        <Route path="/team" component={Team} />
+        <Route path="/coach_joyce" component={Coach_Joyce} />
+        <Route path="/coach_john" component={Coach_John} />
+        <Route path="/coach_samantha" component={Coach_Samantha} />
+        <Route path="/coach_cameron" component={Coach_Cameron} />
+        <Route path="/coach_marvin" component={Coach_Marvin} />
+        <Route path="/coach_kayla" component={Coach_Kayla} />
+        <Route path="/club" component={Club} />
+        <Route path="/blog" component={Blog} />
+        <Route path="/blog_article" component={Blog_Article} />
+        <Route path="/faq" component={Faq} />
+        <Route path="/reserve_choose" component={Reserve_Choose} />
+        <Route path="/reserve_identify" component={Reserve_Identify} />
+        <Route path="/reserve_member" component={Reserve_Member} />
+        <Route path="/dash_profile" component={Dash_Profile} />
+    </HashRouter>
+
+    // <Router>
+    //     <Route exact path="/" component={PageMain} />
+    //     <Route path="/training" component={PageTraining} />
+    //     <Route path="/pricing" component={PagePricing} />
+    //     <Route path="/schedule" component={PageSchedule} />
+    //     <Route path="/team" component={PageTeam} />
+    //     <Route path="/club" component={PageClub} />
+    //     <Route path="/faq" component={PageFaq} />
+    // </Router>
+
+  // <Router>
+    //   <Switch>
+    //     <Route path="/faq">
+    //       <PageFaq />
+    //     </Route>
+    //     <Route path="/club">
+    //       <PageClub />
+    //     </Route>
+    //     <Route path="/team">
+    //       <PageTeam />
+    //     </Route>
+    //     <Route path="/schedule">
+    //       <PageSchedule />
+    //     </Route>
+    //     <Route path="/pricing">
+    //       <PagePricing />
+    //     </Route>
+    //     <Route path="/training">
+    //       <PageTraining />
+    //     </Route>
+    //     <Route exact path="/">
+    //       <PageMain />
+    //     </Route>
+    //   </Switch>
+    //  </Router>
+  );
+}
 
 // <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900&display=swap" rel="stylesheet">
-
 ReactDOM.render(<App />, document.getElementById('root'));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// ReactDOM.render(<StateUsage />, document.getElementById('roof'))
 
 
 /*
-class Thenable {
-    constructor(num) {
-        this.num = num
-    }
-    then(res, err) {
-        console.log(res)
-        setTimeout(() => res(this.num * 3), 1000)
-    }
+function* suiquance() {
+    yield 6
+    yield 33
+    return 88
 }
-new Promise(res => res(4))
-.then(res => {
-    return new Thenable(res)
-})
-.then(console.log)
+let gen = suiquance()
 
+let one = gen.next()
+console.log(one)
 
+let two = gen.next()
+console.log(two)
 
-/*
-new Promise((res,err) => {
-    setTimeout(() => res(1), 1000)
-}).then(result => {
-    console.log(result)
-    return new Promise((res, err) => {
-        setTimeout(() => res(result * 2), 1000)
-    })
-}).then(result => {
-    console.log(result)
-    return new Promise((res, err) => {
-        setTimeout(() => res(result * 2), 1000)
-    })
-}).then((result) => {
-    console.log(result)
-    return result * 2
-})
+let tree = gen.next()
+console.log(tree)
 
-
-/*
-let scaleNames = {
-    c: 'celsius',
-    f: 'fahrenheit'
-}
-function WaterVerdict(props) {
-    if (props.scale >= 100) {
-        return <p>Water is boiling!</p>
-    }
-    return <p>Water is not boiling!</p>
-}
-function toCelcius(fahrenheit) {
-    return (fahrenheit - 32) * 5 / 9
-}
-function toFahrenheit(celcius) {
-    return (celcius * 9 / 5) + 32
-}
-function tryConvert(temp, convert) {
-    const input = parseFloat(temp)
-    if (Number.isNaN(input)) {
-        return ''
-    }
-    const output = convert(input)
-    const rounded = Math.round(output * 1000) / 1000
-    return rounded.toString()
-}
-class TemperatureInput extends React.Component {
-    handleChange = (e) => {
-        this.props.temperatureChange(e.target.value)
-    }
-    render() {
-        return (
-            <fieldset>
-                <legend>Enter temp in {scaleNames[this.props.scale]}</legend>
-                <input value={this.props.temp} onChange={this.handleChange} />
-            </fieldset>
-        )
-    }
-}
-class Calculator extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = { temp: '', scale: 'c' }
-    }
-    handleCelciusChange = (temp) => {
-        this.setState({scale: 'c', temp})
-    }
-    handleFahrenheitChange = (temp) => {
-        this.setState({scale: 'f', temp})
-    }
-    render() {
-        const temp = this.state.temp
-        const scale = this.state.scale
-        const celcius = scale === 'f' ? tryConvert(temp, toCelcius) : temp
-        const fahrenheit = scale === 'c' ? tryConvert(temp, toFahrenheit) : temp
-        return (
-            <div>
-                <TemperatureInput scale={'c'} temp={celcius} temperatureChange={this.handleCelciusChange} />
-                <TemperatureInput scale={'f'} temp={fahrenheit} temperatureChange={this.handleFahrenheitChange} />
-                <WaterVerdict scale={celcius} />
-            </div>
-
-        )
-    }
-}
-ReactDOM.render(<Calculator />, document.getElementById('roof'))
-
-
-/*
-function createCircule(x, y, r) {
-    let div = document.createElement('div')
-    div.style.width = 0
-    div.style.height = 0
-    div.style.left = x + 'px'
-    div.style.top = y + 'px'
-    div.className = 'circle'
-
-    document.body.append(div)
-
-    return new Promise(res => {
-        setTimeout(() => {
-            div.style.width = r + 'px'
-            div.style.height = r + 'px'
-
-            div.addEventListener('transitionend', hand => {
-                div.removeEventListener('transitionend', hand)
-                res(div)
-            })
-        }, 0)
-    })
-}
-
-function go() {
-    createCircule(300, 300, 200).then(div => {
-        div.classList.add('flex')
-        div.append('Hello!')
-    })
-}
-
-document.querySelector('.monthAq').onclick = function(e) {
-    go()
-}
+let four = gen.next()
+console.log(four)
 */

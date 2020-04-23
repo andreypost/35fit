@@ -1,12 +1,12 @@
 import React from 'react';
 
-class GlSetRateLine extends React.Component {
+export default class SetRateLineGl extends React.Component {
     componentDidMount() {
         let elems = document.querySelectorAll('.greyLineGl')
         if (!elems) return
         for (let elem of elems) {
-            let line = elem.querySelector('.greenLineGl')
-            let pers = elem.nextElementSibling.firstChild.innerHTML
+            let line = elem.querySelector('.greenLineGl'),
+                pers = elem.nextElementSibling.firstChild.innerHTML
             line.style.width = pers + '%'
         }
     }
@@ -18,4 +18,3 @@ class GlSetRateLine extends React.Component {
         );
     }
 }
-export default GlSetRateLine;

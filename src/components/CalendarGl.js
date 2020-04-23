@@ -3,35 +3,39 @@ import React from 'react';
 import photo_1 from '../images/icons/icon_4_2.png';
 import photo_2 from '../images/icons/icon_4_1.png';
 
-class GlCalendar extends React.Component {
+export default class CalendarGl extends React.Component {
 	componentDidMount() {
-		let currentModal = null
+		let currentModal = null,
+			calendarGl = document.querySelector('.calendarGl'),
+			contDeskTabl = calendarGl.querySelector('.contCalenDeskGl'),
+			contMobTable = document.querySelector('.calenMobGl'),
+			changeMonGl = document.getElementById('changeMonGl'),
+			now = new Date(),
+			year = now.getFullYear(),
+			month = now.getMonth(),
+			date = now.getDate(),
+			arrMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+			countMonth = 0
 		const showModal = (modal) => {
 			if (currentModal) {
-				hideModal(currentModal)
+				hideModal(modal)
 				currentModal = null
 			}
 			let width = document.documentElement.clientWidth
 			document.body.style.overflow = 'hidden'
 			document.body.style.paddingRight = document.documentElement.clientWidth - width + 'px'
-			currentModal = modal
-			currentModal.style.display = 'block'
-			currentModal.onclick = (ev) => {
-				let target = ev.target.closest('.closeButtGl')
+			currentModal = true
+			modal.style.display = 'block'
+			modal.onclick = (e) => {
+				let target = e.target.closest('.closeButtGl')
 				if (!target) return
-				if (target.classList == 'closeButtGl') {
-					hideModal(currentModal)
-				}
+				if (target.classList == 'closeButtGl') hideModal(modal)
 			}
-			document.addEventListener('keydown', (ev) => {
-				if (ev.key == 'Escape') {
-					hideModal(currentModal)
-				}
+			document.addEventListener('keydown', (e) => {
+				if (e.key == 'Escape') hideModal(modal)
 			})
-			document.addEventListener('click', (ev) => {
-				if (ev.target == currentModal) {
-					hideModal(currentModal)
-				}
+			document.addEventListener('click', (e) => {
+				if (e.target == modal) hideModal(modal)
 			})
 		}
 		const hideModal = (modal) => {
@@ -40,26 +44,14 @@ class GlCalendar extends React.Component {
 			document.body.style.overflowY = ''
 			document.body.style.paddingRight = 0 + 'px'
 		}
-		let calendarGl = document.querySelector('.calendarGl')
-		let contDeskTabl = calendarGl.querySelector('.contCalenDeskGl')
-		let contMobTable = document.querySelector('.calenMobGl')
-		let changeMonGl = document.getElementById('changeMonGl')
-
-		let now = new Date()
-		let year = new Date().getFullYear()
-		let month = new Date().getMonth()
-		let date = new Date().getDate()
-		let arrMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-
 		const calendarMob = (container) => {
 			if (!container) return
 			container.innerHTML = ''
-			let blocks = document.querySelector('.blockDateGl')
-			let arrDay = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
-
-			let currentYear = new Date(year, month)
-			let dd = currentYear.getDate()
-			let lastD = new Date(year, month + 1, 0).getDate()
+			let blocks = document.querySelector('.blockDateGl'),
+				arrDay = ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+				currentYear = new Date(year, month),
+				dd = currentYear.getDate(),
+				lastD = new Date(year, month + 1, 0).getDate()
 
 			const setBlocks = () => {
 				if (year == new Date().getFullYear() &&
@@ -91,8 +83,8 @@ class GlCalendar extends React.Component {
 
 			}
 			setBlocks()
-			document.getElementById('loadDatesGl').onclick = (ev) => {
-				ev.preventDefault()
+			document.getElementById('loadDatesGl').onclick = (e) => {
+				e.preventDefault()
 				container.classList.toggle('showMoreDates')
 				document.body.classList.toggle('overHid')
 				document.querySelector('.firstTxGl').classList.toggle('showTextGl')
@@ -120,8 +112,7 @@ class GlCalendar extends React.Component {
 					table += '<td></td>'
 				}
 			}
-			table += '</tr></table>'
-			container.innerHTML = table
+			container.innerHTML = table += '</tr></table>'
 			setGreyColorTd(container)
 		}
 		const getD = (d) => {
@@ -162,9 +153,9 @@ class GlCalendar extends React.Component {
 			}
 		}
 		const hoverTd = (td) => {
-			let textTd = document.querySelector('.txFirstTdGl').cloneNode(true)
+			let textTd = document.querySelector('.txFirstTdGl').cloneNode(true),
+				currTd = null
 			// let h3 = textTd.querySelector('h3')
-			let currTd = null
 			td.onmouseover = () => {
 				if (td.dataset.turn == 'off') return
 				if (currTd) return
@@ -176,9 +167,9 @@ class GlCalendar extends React.Component {
 				// }
 				td.append(textTd)
 			}
-			td.onmouseout = (ev) => {
+			td.onmouseout = (e) => {
 				if (currTd) {
-					if (!ev.relatedTarget || !td.contains(ev.relatedTarget)) {
+					if (!e.relatedTarget || !td.contains(e.relatedTarget)) {
 						td.classList.remove('onHoverTdGl')
 						textTd.style.display = 'none'
 						currTd = null
@@ -187,21 +178,21 @@ class GlCalendar extends React.Component {
 			}
 		}
 		const showModClockChoose = (td, ddMod) => {
-			let arrWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
-			let modal = document.getElementById('modCalenGl')
-			let content = modal.querySelector('.modCalenContGl')
+			let arrWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+				modal = document.getElementById('modCalenGl'),
+				content = modal.querySelector('.modCalenContGl')
 			// let h3 = content.querySelector('h3')
 			// if (client_id === '') {
 			// h3.style.visibility = 'hidden';
 			// }
-			td.onclick = (ev) => {
+			td.onclick = () => {
 				if (td.dataset.turn == 'off') return
 				document.querySelector('.dateModGl').innerHTML = ddMod
 				document.querySelector('.weekSetGl').innerHTML = arrWeek[new Date(year, month, ddMod).getDay()]
 				showModal(modal)
 
-				content.onclick = (ev) => {
-					let target = ev.target.closest('.plusHrGl,.minusHrGl,.plusMinGl,.minusMinGl,.closeGl,#selectTmGl')
+				content.onclick = (e) => {
+					let target = e.target.closest('.plusHrGl,.minusHrGl,.plusMinGl,.minusMinGl,.closeGl,#selectTmGl')
 					if (!target) return
 					let hour = +content.querySelector('.hourGl').innerHTML
 					let min = +content.querySelector('.minGl').innerHTML
@@ -225,31 +216,41 @@ class GlCalendar extends React.Component {
 						if (min == 0) min = '0' + min
 						target.previousElementSibling.innerHTML = min
 					} else if (target.id == 'selectTmGl') {
-						// var reserve_start = new Date(year, month, ddMod, hour, min);
 						setTdVisited(td)
 						hideModal(modal)
+						if (window.location.href.includes('reserve_choose')) {
+							const correctTime = (time) => {
+								let d = time.getDate()
+								if (d < 10) d = '0' + d
+								let m = time.getMonth() + 1
+								if (m < 10) m = '0' + m
+								let h = time.getHours()
+								if (h < 10) h = '0' + h
+								let mn = time.getMinutes()
+								if (mn < 10) mn = '0' + mn
+								return (d + '.' + m + ' / ' + h + '.' + mn)
+							}
+							// localStorage.setItem('userTime', correctTime(new Date(year, month, ddMod, hour, min)))
+							import('./data').then(result => {
+								result.data.userTime = correctTime(new Date(year, month, ddMod, hour, min))
+							})
+							setTimeout(() => window.location.assign("#/reserve_identify"), 500)
+						}
 						// if (window.location.href.includes('reserve_choose_time') || window.location.href.includes('schedule')|| window.location.href.includes('main')) {
-
 						// var lang = window.location.pathname.split('/')[1];
-
 						// if (client_id !== '') {
 						// window.location.assign('/'+lang+'/reserve_choose_time/create_reserve?reserve_start='+encodeURIComponent(reserve_start));
 						// } else {
 						// window.location.assign('/'+lang+'/reserve_identity?reserve_start='+encodeURIComponent(reserve_start));
 						// }
-
 					} else if (target.classList == 'closeGl') {
 						hideModal(modal)
 					}
-					document.addEventListener('keydown', (ev) => {
-						if (ev.key == 'Escape') {
-							hideModal(modal)
-						}
+					document.addEventListener('keydown', (e) => {
+						if (e.key == 'Escape') hideModal(modal)
 					})
-					document.addEventListener('click', (ev) => {
-						if (ev.target == modal) {
-							hideModal(modal)
-						}
+					document.addEventListener('click', (e) => {
+						if (e.target == modal) hideModal(modal)
 					})
 				}
 			}
@@ -269,7 +270,6 @@ class GlCalendar extends React.Component {
 				}
 			}
 		}
-		let countMonth = 0
 		changeMonGl.onclick = (ev) => {
 			let target = ev.target.closest('.minusMonGl, .plusMonGl')
 			if (!target) return
@@ -308,7 +308,7 @@ class GlCalendar extends React.Component {
 	}
 	render() {
 		return (
-			<div>
+			<>
 				<section className="calendarGl">
 					<article id="onTopGl" className="flex wrap">
 						<div className="flex" id="changeMonGl">
@@ -384,8 +384,7 @@ class GlCalendar extends React.Component {
 					<i className="selfStart"></i>
 					<h3 className="alignLf">Bit longer rest. But OK</h3>
 				</div>
-			</div>
+			</>
 		);
 	}
 }
-export default GlCalendar;

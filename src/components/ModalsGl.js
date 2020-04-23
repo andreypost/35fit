@@ -2,71 +2,71 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-class JsGlobalModals extends React.Component {
+export default class ModalsGl extends React.Component {
     componentDidMount() {
-        let currentModal = null
-        let cross = document.getElementById('crossGl')
-        let lines = document.getElementById('linesGl')
+        let currentModal = null,
+            cross = document.getElementById('crossGl'),
+            lines = document.getElementById('linesGl'),
+            buttProf = document.querySelector('.buttProfGl'),
+            loginGl = document.getElementById('loginGl'),
+            specialButt = document.querySelector('.specialButtGl'),
+            modCabinMenu = document.getElementById('modCabinMenuGl'),
+            modLogGl = document.getElementById('modLogGl')
         const showModal = (modal) => {
             if (currentModal) {
                 hideModal(currentModal)
                 currentModal = null
             }
             let width = document.documentElement.clientWidth
-            document.body.style.overflow = 'hidden'
+            document.body.style.overflowY = 'hidden'
             document.body.style.paddingRight = document.documentElement.clientWidth - width + 'px'
             currentModal = modal
             currentModal.style.display = 'block'
             lines.style.display = 'none'
             cross.style.display = 'block'
-            currentModal.onclick = (ev) => {
-                let target = ev.target.closest('.closeButtGl,.contRdGl,.iconDashBlockGl,a')
+            currentModal.onclick = (e) => {
+                let target = e.target.closest('.closeButtGl,.contRdGl,.iconDashBlockGl,a')
                 if (!target) return
                 if (target.classList == 'closeButtGl' || target.classList.contains('iconDashBlockGl')) {
                     hideModal(currentModal)
                 } else if (target.classList == 'contRdGl') {
-                    ev.preventDefault()
+                    e.preventDefault()
                     let input = target.querySelector('input')
                     input.checked = !input.checked
                 } else if (target.tagName == 'A' && (target.href).includes(this.props.pathname)) {
                     hideModal(currentModal)
                 }
             }
-            document.addEventListener('keydown', function (ev) {
-                if (ev.key == 'Escape') {
-                    hideModal(currentModal)
-                }
+            document.addEventListener('keydown', (e) => {
+                if (e.key == 'Escape') hideModal(currentModal)
             })
-            window.addEventListener('click', function (ev) {
-                if (ev.target == currentModal) {
-                    hideModal(currentModal)
-                }
+            window.addEventListener('click', (e) => {
+                if (e.target == modal) hideModal(currentModal)
             })
         }
         const hideModal = (modal) => {
             modal.style.display = 'none'
             cross.style.display = 'none'
             lines.style.display = 'block'
-            document.body.style.overflow = ''
             document.body.style.overflowY = ''
             document.body.style.paddingRight = 0 + 'px'
         }
         const ShowNavMenu = (options) => {
-            let modal = options.modal
-            let content = modal.querySelector('#modalNavContGl')
-            let navSwitch = options.navSwitch
-            let navRight = options.navRight
-            let navMenu = options.navMenu
-            let cloneNav = navMenu.cloneNode(true)
-            let cloneLogin = navRight.cloneNode(true)
-            navSwitch.onclick = (ev) => {
+            let modal = options.modal,
+                content = modal.querySelector('#modalNavContGl'),
+                navSwitch = options.navSwitch,
+                navRight = options.navRight,
+                navMenu = options.navMenu,
+                cloneNav = navMenu.cloneNode(true),
+                cloneLogin = navRight.cloneNode(true)
+            navSwitch.onclick = (e) => {
                 cloneNav.classList.add('navMobileGl')
                 cloneLogin.classList.add('loginMobileGl')
                 content.append(cloneNav)
                 content.append(cloneLogin)
-                showModal(modal, ev)
+                showModal(modal, e)
                 ModalLoginGl({
-                    modal: document.getElementById('modLogGl'),
+                    modal: modLogGl,
                     login: content.querySelector('#loginGl')
                 })
             }
@@ -81,37 +81,33 @@ class JsGlobalModals extends React.Component {
             let modal = options.modal
             if (!modal) return
             let login = options.login
-            login.onclick = (ev) => {
-                showModal(modal, ev)
+            login.onclick = (e) => {
+                showModal(modal, e)
             }
         }
         ModalLoginGl({
-            modal: document.getElementById('modLogGl'),
+            modal: modLogGl,
             login: document.getElementById('loginGl')
         })
         const changeLoginMenu = (buttProf, login) => {
-            let client_id = login.dataset.session
+            let client_id = login.dataset.session,
+                icon = document.querySelector('.specialButtGl')
             // console.log(client_id)
-            let icon = document.querySelector('.specialButtGl')
-            if (client_id == '') {
+            if (client_id != '') {
                 login.style.display = 'block'
                 buttProf.style.display = 'none'
                 icon.style.display = 'none'
-            } else if (client_id != '') {
+            } else if (client_id == '') {
                 login.style.display = 'none'
                 buttProf.style.display = 'block'
                 icon.style.display = 'block'
             }
         }
         const showCabinModal = (elem, modal) => {
-            elem.onclick = (ev) => {
-                showModal(modal, ev)
+            elem.onclick = (e) => {
+                showModal(modal, e)
             }
         }
-        let buttProf = document.querySelector('.buttProfGl')
-        let loginGl = document.getElementById('loginGl')
-        let specialButt = document.querySelector('.specialButtGl')
-        let modCabinMenu = document.getElementById('modCabinMenuGl')
         changeLoginMenu(buttProf, loginGl)
         showCabinModal(buttProf, modCabinMenu)
         showCabinModal(specialButt, modCabinMenu)
@@ -119,9 +115,9 @@ class JsGlobalModals extends React.Component {
             if (!elems) return
             let modal = document.getElementById('modContactGl')
             for (let elem of elems) {
-                elem.onclick = (ev) => {
-                    ev.preventDefault()
-                    showModal(modal, ev)
+                elem.onclick = (e) => {
+                    e.preventDefault()
+                    showModal(modal, e)
                 }
             }
         }
@@ -134,7 +130,7 @@ class JsGlobalModals extends React.Component {
     }
     render() {
         return (
-            <div>
+            <>
                 <div id="modalNavGl">
                     <div id="modalNavContGl" className="shadow"></div>
                 </div>
@@ -230,8 +226,7 @@ class JsGlobalModals extends React.Component {
                     </div>
                 </div>
                 {/* <>{this.hideModal()}</> */}
-            </div>
+            </>
         );
     }
 }
-export default JsGlobalModals;

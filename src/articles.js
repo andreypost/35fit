@@ -11,6 +11,7 @@ export default [
         'title_08': 'Connected Training System',
         'title_09': 'Training by science',
         'title_10': 'We do have coaches in club',
+        'title_11':'For better results stick to training plan',
     },
     {
         // 1
@@ -74,6 +75,22 @@ export default [
         'coach_06': 'Kayla',
         'post_01': 'Head Coach',
         'post_02': 'Coach',
+        'life_01': 'For Joyce, SoulCycle is about showing up and challenging yourself. Born and raised in New York, SJ curates playlists encouraging riders to find the connection between life, resistance, and rhythm on the bike. Find unity of self in the here and now by activating your mind, body and SOUL.',
+        'play_01': 'In Joyce’s playlist',
+        'play_02': 'In John’s playlist',
+        'play_03': 'In Samantha’s playlist',
+        'play_04': 'In Cameron’s playlist',
+        'play_05': 'In Marvin’s playlist',
+        'play_06': 'In Kayla’s playlist',
+        'text_01': 'For Joyce, SoulCycle is about showing up and challenging yourself. Born and raised in New York, SJ curates playlists encouraging riders to find the connection between life, resistance, and rhythm on the bike',
+        'community_s': '#CONNECTEDTO',
+        'community_e': '#RESULTS',
+        'community_01': "Joyce's Insta",
+        'community_02': "John's Insta",
+        'community_03': "Samantha's Insta",
+        'community_04': "Cameron's Insta",
+        'community_05': "Marvin's Insta",
+        'community_06': "Kayla's Insta",
     }
 ]
 

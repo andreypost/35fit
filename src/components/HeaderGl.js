@@ -1,17 +1,16 @@
 import React from 'react';
-import { GlTopNav } from './GlTopNav';
+import { NavigationGl } from './NavigationGl';
 
-
-export const GlHeader = (props) => {
-  const article = props.articulos
+export const HeaderGl = (props) => {
+  const articulos = props.articulos
   return (  
       <header className={props.clase}>
-        <GlTopNav />
+        <NavigationGl />
         <section>
           <article className="flex justStart headerGroupGl">
             <hgroup className="five alignLf">
-              <h1>{article[0]}</h1>
-              <h3>{article[1]}</h3>
+              <h1>{articulos[0]}</h1>
+              <h3>{articulos[1]}</h3>
             </hgroup>
           </article>
         </section>

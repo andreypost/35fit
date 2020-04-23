@@ -158,7 +158,6 @@ button {font-family: MontserratBold; font-size: 14px; cursor: pointer;}
 	width: 118px;
 	height: 50px;
 	background: url(./images/icons/icon_1_0.png) center center no-repeat;
-	color: #000044;
 }
 .navLinksGl li a {
 	margin: 10px 20px;
@@ -935,6 +934,7 @@ button {font-family: MontserratBold; font-size: 14px; cursor: pointer;}
 	margin: 30px 0;
 	cursor: pointer;
 	transition: all 0.5s;
+	background: #FFFFFF;
 }
 .teamEt > a:hover {
 	transform: scale(1.1);
@@ -942,7 +942,7 @@ button {font-family: MontserratBold; font-size: 14px; cursor: pointer;}
 	z-index: 9999;
 }
 .teamNameEt {
-	margin-left: 40px
+	margin: 20px 0px 0 40px;
 }
 .teamNameEt p {
 	font-size: 14px;
@@ -1394,41 +1394,47 @@ button {font-family: MontserratBold; font-size: 14px; cursor: pointer;}
     margin: 40px 0;
 }
 #formStartUserRs {
-	align-items: stretch;
+	align-items: stretch; 
+	/* delete after new reserve form */
+}
+.containerFormRs {
+	max-width: 1340px;
+    margin-bottom: 320px;
 }
 .sideLeftRs {
-	flex: 1 280px;
+	flex: 1 1;
+    min-height: 1450px;
 }
 .sideRightRs {
-	flex: 3 720px;
+	flex: 1.7 1;
 }
-.sideRightRs > div {
-	width: 100%;
+.sideRightRs > hgroup h3 {
+	margin-bottom: 20px;
 }
 .sideRightRs h3 {
-	margin-bottom: 40px;
+	/* margin-bottom: 40px; */
 }
 .sideRightRs p {
-	margin-bottom: 40px;
+	/* margin-bottom: 40px; */
 }
 .sideRightRs h4 {
-	margin-bottom: 25px;
+	/* margin-bottom: 25px; */
 }
 .sideRightRs fieldset {
-	width: 350px;
-	margin: 25px 0;
+	/* width: 350px; */
+	/* margin: 25px 0; */
 }
 .sideRightRs .textareaGl {
-	width: 100%;
-	height: 120px;
+	/* width: 100%; */
+	/* height: 120px; */
 }
 .sideRightRs input,
 .sideRightRs fieldset textarea {
-	width: 95%;
+	/* width: 95%; */
 }
 .termRs,
 .saveRs {
-	margin: 20px 0;
+	/* margin: 20px 0; */
 }
 .sendButtRs {
 	margin: 20px 0 120px;
@@ -1939,35 +1945,35 @@ button {font-family: MontserratBold; font-size: 14px; cursor: pointer;}
 .overStatPw i {
 	background: #000044;
 }
-/* dashprofile */
-#profileFormPw h4, #passwordFormPw h4 {
+/* formprofile && dashprofile */
+#profileFormGl h4, #passwordFormPw h4 {
 	margin: 80px 0 40px;
 }
-#profileFormPw > div, #passwordFormPw > div {
+#profileFormGl > div, #passwordFormPw > div {
 	width: 100%;
 }
-#profileFormPw fieldset, #passwordFormPw fieldset {
+#profileFormGl fieldset, #passwordFormPw fieldset {
 	width: 350px;
 	margin: 20px 0;
 }
-#profileFormPw .fieldPartGl, #passwordFormPw .fieldPartGl {
+#profileFormGl .fieldPartGl, #passwordFormPw .fieldPartGl {
 	width: 330px;
 	margin-right: 20px;
 }
 .emptySpaceGl {
 	width: 10px;
 }
-#profileFormPw .textareaGl {
+#profileFormGl .textareaGl {
     width: 100%;
     height: 120px;
 }
-#profileFormPw .termPw {
+#profileFormGl .termGl {
 	width: auto;
 }
-.termPw label {
+.termGl label {
 	margin: 25px 0;
 }
-#profileFormPw .changeButtPw {
+#profileFormGl .changeButtPw {
 	margin-top: 20px;
 }
 #passwordFormPw .changeButtPw {
@@ -2525,6 +2531,13 @@ footer p, .hrefContactGl, .inputEmailGl::placeholder {
 /* end modal rules */
 
 
+/* weather api block */
+.weatherStyle {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
 
 
 
@@ -2587,7 +2600,7 @@ footer p, .hrefContactGl, .inputEmailGl::placeholder {
 	}
 }
 @media (max-width: 920px) {
-	.navLinksGl, .navRightGl, .ovalBt, .closeMdLogGl, .sideLeftPw, .buttDeskPfGl {
+	.navLinksGl, .navRightGl, .ovalBt, .closeMdLogGl, .sideLeftPw, .sideLeftRs, .buttDeskPfGl {
 		display: none;
 	}
 	#navSwitchGl, #linesGl, .specialButtGl .iconGreenProfGl{
@@ -2625,7 +2638,7 @@ footer p, .hrefContactGl, .inputEmailGl::placeholder {
 	.articleHb .artContHb > div {
 		flex: unset;
 	}
-	#profileFormPw, #passwordFormPw {
+	#profileFormGl, #passwordFormPw {
 		align-items: center;
 	}
 	.changeButtPw  {
@@ -2750,7 +2763,7 @@ footer p, .hrefContactGl, .inputEmailGl::placeholder {
 	.connectGl, .touchGl, .setImgTextBlGl, .comContGl, .setRollBlGl, .pricingGroupCd,
 	.truggeCd, .pricingRegCd, .coachPersEt, .aboutCoachEt, .blockGonsFc,
 	.setArtTextHb, .blockArtHb, #formCheckUserRs, .firstBlPw, .nextClPw > div,
-	.secBlPw, .reportsPw, .milonPlatPw > div, #profileFormPw > div {
+	.secBlPw, .reportsPw, .milonPlatPw > div, #profileFormGl > div {
 		flex-flow: column;
 	}
 	.connectGl h4, .touchGl h4, .socialGl, .partnerGl,
@@ -2819,7 +2832,7 @@ footer p, .hrefContactGl, .inputEmailGl::placeholder {
 	.oopsOp h1 {
 		font-size: 140px;
 	}
-	.blockArtHb, .clStartPw, .starIconPw, .textStarPw, #profileFormPw {
+	.blockArtHb, .clStartPw, .starIconPw, .textStarPw, #profileFormGl {
 		align-items: center;
 	}
 	.coachPlayListEt h2, .clStartPw p, .changeImgPw h3 {
@@ -2860,7 +2873,7 @@ footer p, .hrefContactGl, .inputEmailGl::placeholder {
 	.deskMilonPw, .mobMilonPw {
 		width: 80%;
 	}
-	#profileFormPw .textareaGl {
+	#profileFormGl .textareaGl {
 	    width: 350px;
 	    height: 220px;
 	}
@@ -2877,7 +2890,6 @@ footer p, .hrefContactGl, .inputEmailGl::placeholder {
 	    width: 90%;
 	    margin: 7px auto;
 	}
-	.sideLeftRs,
 	.sideRightRs img,
 	.cardioBt i,
 	.topStatusPw  {
@@ -3028,6 +3040,9 @@ footer p, .hrefContactGl, .inputEmailGl::placeholder {
 	.mapFc img:nth-of-type(2) {  /* remove after get api */
 		display: block;
 	}
+	.teamEt > a {
+		margin: 40px 20px;
+	}
 	.oopsOp h1 {
 		font-size: 76px;
 	}
@@ -3092,7 +3107,7 @@ footer p, .hrefContactGl, .inputEmailGl::placeholder {
 	.leftStatusPw h6, .textStatPw > * {
 		line-height: 8px;
 	}
-	#profileFormPw {
+	#profileFormGl {
 		align-items: flex-start;
 	}
 	#passwordFormPw h4 {
@@ -3171,12 +3186,12 @@ footer p, .hrefContactGl, .inputEmailGl::placeholder {
 	.proceedPw a { /*or buttBanGreen, buttBanWhite change font-size*/
     	font-size: 16px;
 	}
-	#profileFormPw fieldset, #profileFormPw .textareaGl,
+	#profileFormGl fieldset, #profileFormGl .textareaGl,
 	#passwordFormPw fieldset, #passwordFormPw .textTipPw {
 		width: 100%;
 		margin: 10px auto;
 	}
-	#profileFormPw .fieldPartGl, #passwordFormPw .fieldPartGl {
+	#profileFormGl .fieldPartGl, #passwordFormPw .fieldPartGl {
 		width: 95%;
 		align-self: flex-start;
 	}
@@ -3223,11 +3238,14 @@ footer p, .hrefContactGl, .inputEmailGl::placeholder {
 		left: calc(100% - 172px);
 	}
 }
-
-
 .disBlockGl {display: block;}
 .nonBlockGl {display: none;}
 
+.imgTest {
+	object-fit: contain;
+}
+
+/* 
 .circle {
 	transition-property: width, height, margin-left, margin-top;
 	transition-duration: 1s;
@@ -3235,5 +3253,21 @@ footer p, .hrefContactGl, .inputEmailGl::placeholder {
 	position: fixed;
 	border-radius: 50%;
 	background: chartreuse;
-}
-
+} */
+/* .FancyBorder {
+	padding: 10px 10px;
+	border: 10px solid;
+  }
+  
+  .FancyBorder-blue {
+	border-color: blue;
+  }
+  
+  .Dialog-title {
+	margin: 0;
+	font-family: sans-serif;
+  }
+  
+  .Dialog-message {
+	font-size: larger;
+  } */

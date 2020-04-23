@@ -3,8 +3,8 @@
 import React from 'react';
 import article from './articles';
 import { Link } from "react-router-dom";
-import { GlHeader } from './components/GlHeader';
-import { GlGreenLine } from './components/GlGreenLine';
+import { HeaderGl } from './components/HeaderGl';
+import { GreenLineGl } from './components/GreenLineGl';
 import line_1 from './images/pattern/pattern_bg_1_3.png';
 import add_1 from './images/add/add_2_1.png';
 import add_2 from './images/add/add_2_2.png';
@@ -21,20 +21,16 @@ import add_6 from './images/add/add_2_5.png';
 import add_7 from './images/add/add_2_6.png';
 import add_8 from './images/add/add_2_7.png';
 import add_9 from './images/add/add_2_8.png';
-import { GlBannerBottom } from './components/GlBannerBottom';
-import { GlFooter } from './components/GlFooter';
-import JsGlobalModals from "./components/JsGlobalModals";
+import { BannerBottomGl } from './components/BannerBottomGl';
+import { FooterGl } from './components/FooterGl';
+import ModalsGl from "./components/ModalsGl";
 
-class PageTraining extends React.Component {
+export default class Training extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0)
     let pointGl, textGl
-    function ShowHideTextClick(options) {
-      let cont = options.cont
-      if (!cont) return
-      let texts = options.texts
+    const ShowHideTextClick = (cont, texts) => {
       let points = cont.querySelectorAll('#plusIcGl')
-
       for (let i = 0; i < points.length; i++) {
         points[i].onclick = () => {
           if (!pointGl) {
@@ -52,41 +48,31 @@ class PageTraining extends React.Component {
           addClass(pointGl, textGl)
         }
       }
-      function addClass(p, t) {
+      const addClass = (p, t) => {
         p.classList.add('transGl')
         t.classList.add('disBlockGl')
       }
-      function removeClass(p, t) {
+      const removeClass = (p, t) => {
         p.classList.remove('transGl')
         t.classList.remove('disBlockGl')
       }
     }
-    function ShowTextClick(options) {
-      let cont = options.cont
-      if (!cont) return
-      let texts = options.texts
+    const ShowTextClick = (cont, texts) => {
       let points = cont.querySelectorAll('#plusIcGl')
-
       for (let i = 0; i < points.length; i++) {
-        points[i].onclick = function () {
+        points[i].onclick = () => {
           points[i].classList.toggle('transGl')
           texts[i].classList.toggle('disBlockGl')
         }
       }
     }
-    new ShowTextClick({
-      cont: document.querySelector('.nutritionBt'),
-      texts: document.querySelectorAll('.slideTxtBt')
-    })
-    new ShowHideTextClick({
-      cont: document.querySelector('.setRightRollGl'),
-      texts: document.querySelectorAll('.slideContGl')
-    })
+    ShowTextClick(document.querySelector('.nutritionBt'), document.querySelectorAll('.slideTxtBt'))
+    ShowHideTextClick(document.querySelector('.setRightRollGl'), document.querySelectorAll('.slideContGl'))
   }
   render() {
     return (
-      <div>
-        <GlHeader articulos={[article[0].title_01, article[1].text_01]} clase="headBt" />
+      <>
+        <HeaderGl articulos={[article[0].title_01, article[1].text_01]} clase="headBt" />
         <main>
           <article className="itensityBt">
             <section className="relative">
@@ -312,7 +298,7 @@ class PageTraining extends React.Component {
                     <h6>Metabolism analysis for a tailored nutritional and training strategy.</h6>
                     <p>{article[1].text_07}</p>
                     <h4>Non-member’s price: 45€</h4>
-                    <Link to="/schedule" className="white">Book your test</Link>
+                    <Link to="/reserve_choose" className="white">Book your test</Link>
                   </div>
                 </div>
               </div>
@@ -328,13 +314,13 @@ class PageTraining extends React.Component {
                     <h6>With the performance analysis to the individual pulse ranges.</h6>
                     <p>{article[1].text_07}</p>
                     <h4>Non-member’s price: 50€</h4>
-                    <Link to="/schedule" className="white">Book your test</Link>
+                    <Link to="/reserve_choose" className="white">Book your test</Link>
                   </div>
                 </div>
               </div>
             </article>
           </section>
-          <GlGreenLine modelo={line_1} />
+          <GreenLineGl modelo={line_1} />
           <section>
             <article className="flex wrap milonBt">
               <div className="alignLf">
@@ -374,14 +360,13 @@ class PageTraining extends React.Component {
                 <p>You can also track your progress with milon ME. From training sessions and training regularity, to special achievements.</p>
               </div>
             </article>
-            <GlBannerBottom clase={['announce margAnnBt', 'margLBt']}
+            <BannerBottomGl clase={['announce margAnnBt', 'margLBt']}
               articulos={['', article[2].bunn_02, '', article[2].price_01, article[2].class_02]} />
           </section>
         </main>
-        <GlFooter />
-        <JsGlobalModals pathname={this.props.history.location.pathname} />
-      </div>
+        <FooterGl />
+        <ModalsGl pathname={this.props.history.location.pathname} />
+      </>
     );
   }
 }
-export default PageTraining;

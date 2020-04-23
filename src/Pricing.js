@@ -2,24 +2,24 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import article from './articles';
-import { GlHeader } from './components/GlHeader';
-import { GlPlan } from './components/GlPlan';
-import { GlGreenLine } from './components/GlGreenLine';
+import { HeaderGl } from './components/HeaderGl';
+import { PlanGl } from './components/PlanGl';
+import { GreenLineGl } from './components/GreenLineGl';
 import line_1 from './images/pattern/pattern_bg_3_2.png';
 import add_1 from './images/add/add_3_1.png';
 import add_2 from './images/add/add_3_2.png';
-import { GlBannerBottom } from './components/GlBannerBottom';
-import { GlFooter } from './components/GlFooter';
-import JsGlobalModals from "./components/JsGlobalModals";
+import { BannerBottomGl } from './components/BannerBottomGl';
+import { FooterGl } from './components/FooterGl';
+import ModalsGl from "./components/ModalsGl";
 
-class PagePricing extends React.Component {
+export default class Pricing extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0)
   }
   render() {
     return (
-      <div>
-        <GlHeader articulos={[article[0].title_02, article[1].text_04]} clase="headCd" />
+      <>
+        <HeaderGl articulos={[article[0].title_02, article[1].text_04]} clase="headCd" />
         <main className="lightGreyBgGl">
             <article className="pricingBannerCd">
                 <section>
@@ -28,7 +28,7 @@ class PagePricing extends React.Component {
                             <h3 className="darkblue">{article[2].bunn_01}</h3>
                             <h2 className="lightgreen">17<span className="ueGl">€</span></h2>
                             <h4 className="darkblue">{article[2].class_01}</h4>
-                            <Link to="/schedule" className="buttBanGreen">Register for trial</Link>
+                            <Link to="/reserve_choose" className="buttBanGreen">Register for trial</Link>
                         </div>
                         <div className="column alignLf">
                             <p>{article[1].text_08}</p>
@@ -36,11 +36,11 @@ class PagePricing extends React.Component {
                         </div>
                     </div>
                     <div className="flex justBet pricingGroupCd">
-                        <GlPlan articulos={[article[3].plan_01, article[3].class_01, article[3].price_01, article[3].month_01, article[3].sold_01]}
+                        <PlanGl articulos={[article[3].plan_01, article[3].class_01, article[3].price_01, article[3].month_01, article[3].sold_01]}
                             enlazar="/faq" />
-                        <GlPlan articulos={[article[3].plan_02, article[3].class_01, article[3].price_02, article[3].month_02, article[3].sold_02]}
+                        <PlanGl articulos={[article[3].plan_02, article[3].class_01, article[3].price_02, article[3].month_02, article[3].sold_02]}
                             enlazar="/club" />
-                        <GlPlan articulos={[article[3].plan_03, article[3].class_01, article[3].price_03, article[3].month_03, article[3].sold_03]}
+                        <PlanGl articulos={[article[3].plan_03, article[3].class_01, article[3].price_03, article[3].month_03, article[3].sold_03]}
                             enlazar="/team" />
                     </div>
                     <div className="flex pricingGroupCd superFlCd">
@@ -48,7 +48,7 @@ class PagePricing extends React.Component {
                             <h3 className="darkblue">Super Flex</h3>
                             <h2 className="lightgreen">62<span className="ueGl">€</span></h2>
                             <h4 className="darkblue">15 classes / month</h4>
-                            <Link to="/schedule" className="buttBanGreen">Register for trial</Link>
+                            <Link to="/reserve_choose" className="buttBanGreen">Register for trial</Link>
                         </div>
                         <div className="blockOptimalGl shadow lastOptCd">
                             <p>{article[1].text_08}</p>
@@ -73,7 +73,7 @@ class PagePricing extends React.Component {
                     </div>
                 </div>
             </section>
-            <GlGreenLine modelo={line_1} />
+            <GreenLineGl modelo={line_1} />
             <section className="flex justBet truggeCd">
                 <div className="alignLf">
                     <h3 className="darkblue">Trugge water</h3>
@@ -87,13 +87,12 @@ class PagePricing extends React.Component {
                     <img src={add_2} className="shadow" alt="" />
                 </div>
             </section>
-            <GlBannerBottom clase={['redRoundGl roundTextGl margAnnCd', '']}
+            <BannerBottomGl clase={['redRoundGl roundTextGl margAnnCd', '']}
                 articulos={[article[2].icon_01, article[2].bunn_03, '', article[2].price_02, article[2].class_03]} />
         </main>
-        <GlFooter />
-        <JsGlobalModals pathname={this.props.history.location.pathname} />
-      </div>
+        <FooterGl />
+        <ModalsGl pathname={this.props.history.location.pathname} />
+      </>
     );
   }
 }
-export default PagePricing;

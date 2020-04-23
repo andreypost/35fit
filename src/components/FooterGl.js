@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-export const GlFooter = () => {
+export const FooterGl = () => {
 	return (
 		<footer>
 			<section>
