@@ -27,29 +27,29 @@ import Reserve_Identify from './Reserve_Identify';
 import Reserve_Member from './Reserve_Member';
 import Dash_Profile from './Dash_Profile';
 
-const App = () => {
-  return (
-    <HashRouter basename='/'>
-        <Route exact path="/" component={Main} />
-        <Route path="/training" component={Training} />
-        <Route path="/pricing" component={Pricing} />
-        <Route path="/schedule" component={Schedule} />
-        <Route path="/team" component={Team} />
-        <Route path="/coach_joyce" component={Coach_Joyce} />
-        <Route path="/coach_john" component={Coach_John} />
-        <Route path="/coach_samantha" component={Coach_Samantha} />
-        <Route path="/coach_cameron" component={Coach_Cameron} />
-        <Route path="/coach_marvin" component={Coach_Marvin} />
-        <Route path="/coach_kayla" component={Coach_Kayla} />
-        <Route path="/club" component={Club} />
-        <Route path="/blog" component={Blog} />
-        <Route path="/blog_article" component={Blog_Article} />
-        <Route path="/faq" component={Faq} />
-        <Route path="/reserve_choose" component={Reserve_Choose} />
-        <Route path="/reserve_identify" component={Reserve_Identify} />
-        <Route path="/reserve_member" component={Reserve_Member} />
-        <Route path="/dash_profile" component={Dash_Profile} />
-    </HashRouter>
+// const App = () => {
+//   return (
+//     <HashRouter basename='/'>
+//       <Route exact path="/" component={Main} />
+//       <Route path="/training" component={Training} />
+//       <Route path="/pricing" component={Pricing} />
+//       <Route path="/schedule" component={Schedule} />
+//       <Route path="/team" component={Team} />
+//       <Route path="/coach_joyce" component={Coach_Joyce} />
+//       <Route path="/coach_john" component={Coach_John} />
+//       <Route path="/coach_samantha" component={Coach_Samantha} />
+//       <Route path="/coach_cameron" component={Coach_Cameron} />
+//       <Route path="/coach_marvin" component={Coach_Marvin} />
+//       <Route path="/coach_kayla" component={Coach_Kayla} />
+//       <Route path="/club" component={Club} />
+//       <Route path="/blog" component={Blog} />
+//       <Route path="/blog_article" component={Blog_Article} />
+//       <Route path="/faq" component={Faq} />
+//       <Route path="/reserve_choose" component={Reserve_Choose} />
+//       <Route path="/reserve_identify" component={Reserve_Identify} />
+//       <Route path="/reserve_member" component={Reserve_Member} />
+//       <Route path="/dash_profile" component={Dash_Profile} />
+//     </HashRouter>
 
     // <Router>
     //     <Route exact path="/" component={PageMain} />
@@ -61,7 +61,7 @@ const App = () => {
     //     <Route path="/faq" component={PageFaq} />
     // </Router>
 
-  // <Router>
+    // <Router>
     //   <Switch>
     //     <Route path="/faq">
     //       <PageFaq />
@@ -86,11 +86,31 @@ const App = () => {
     //     </Route>
     //   </Switch>
     //  </Router>
-  );
-}
+  // );
+// }
 
 // <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900&display=swap" rel="stylesheet">
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<HashRouter basename='/'>
+  <Route exact path="/" component={Main} />
+  <Route path="/training" component={Training} />
+  <Route path="/pricing" component={Pricing} />
+  <Route path="/schedule" component={Schedule} />
+  <Route path="/team" component={Team} />
+  <Route path="/coach_joyce" component={Coach_Joyce} />
+  <Route path="/coach_john" component={Coach_John} />
+  <Route path="/coach_samantha" component={Coach_Samantha} />
+  <Route path="/coach_cameron" component={Coach_Cameron} />
+  <Route path="/coach_marvin" component={Coach_Marvin} />
+  <Route path="/coach_kayla" component={Coach_Kayla} />
+  <Route path="/club" component={Club} />
+  <Route path="/blog" component={Blog} />
+  <Route path="/blog_article" component={Blog_Article} />
+  <Route path="/faq" component={Faq} />
+  <Route path="/reserve_choose" component={Reserve_Choose} />
+  <Route path="/reserve_identify" component={Reserve_Identify} />
+  <Route path="/reserve_member" component={Reserve_Member} />
+  <Route path="/dash_profile" component={Dash_Profile} />
+</HashRouter>, document.getElementById('root'));
 
 // ReactDOM.render(<StateUsage />, document.getElementById('roof'))
 

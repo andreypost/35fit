@@ -40,7 +40,6 @@ export default class CalendarGl extends React.Component {
 		}
 		const hideModal = (modal) => {
 			modal.style.display = 'none'
-			document.body.style.overflow = ''
 			document.body.style.overflowY = ''
 			document.body.style.paddingRight = 0 + 'px'
 		}

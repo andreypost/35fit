@@ -27,18 +27,17 @@ export default class ModalsGl extends React.Component {
             currentModal.onclick = (e) => {
                 let target = e.target.closest('.closeButtGl,.contRdGl,.iconDashBlockGl,a')
                 if (!target) return
-                if (target.classList == 'closeButtGl' || target.classList.contains('iconDashBlockGl')) {
+                if (target.classList === 'closeButtGl' || target.classList.contains('iconDashBlockGl') ||
+                (target.tagName === 'A' && (target.href).includes(this.props.pathname))) {
                     hideModal(currentModal)
-                } else if (target.classList == 'contRdGl') {
+                } else if (target.classList === 'contRdGl') {
                     e.preventDefault()
                     let input = target.querySelector('input')
                     input.checked = !input.checked
-                } else if (target.tagName == 'A' && (target.href).includes(this.props.pathname)) {
-                    hideModal(currentModal)
                 }
             }
             document.addEventListener('keydown', (e) => {
-                if (e.key == 'Escape') hideModal(currentModal)
+                if (e.key === 'Escape') hideModal(currentModal)
             })
             window.addEventListener('click', (e) => {
                 if (e.target == modal) hideModal(currentModal)
@@ -124,7 +123,6 @@ export default class ModalsGl extends React.Component {
         contactModal(document.querySelectorAll('.showContactGl'))
     }
     componentWillUnmount() {
-        document.body.style.overflow = ''
         document.body.style.overflowY = ''
         document.body.style.paddingRight = 0 + 'px'
     }
