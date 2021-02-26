@@ -3,14 +3,14 @@
     "static/js/0.2dad3ddd.chunk.js": "/35fit/static/js/0.2dad3ddd.chunk.js",
     "static/js/0.2dad3ddd.chunk.js.map": "/35fit/static/js/0.2dad3ddd.chunk.js.map",
     "main.css": "/35fit/static/css/main.3a392788.chunk.css",
-    "main.js": "/35fit/static/js/main.6c22d6be.chunk.js",
-    "main.js.map": "/35fit/static/js/main.6c22d6be.chunk.js.map",
+    "main.js": "/35fit/static/js/main.b6be7788.chunk.js",
+    "main.js.map": "/35fit/static/js/main.b6be7788.chunk.js.map",
     "runtime-main.js": "/35fit/static/js/runtime-main.0a487638.js",
     "runtime-main.js.map": "/35fit/static/js/runtime-main.0a487638.js.map",
     "static/js/3.37ec26f2.chunk.js": "/35fit/static/js/3.37ec26f2.chunk.js",
     "static/js/3.37ec26f2.chunk.js.map": "/35fit/static/js/3.37ec26f2.chunk.js.map",
     "index.html": "/35fit/index.html",
-    "precache-manifest.ee8711109284e68fb840c690555a2165.js": "/35fit/precache-manifest.ee8711109284e68fb840c690555a2165.js",
+    "precache-manifest.132e06a7a2fba1445a1db2b45a69eb90.js": "/35fit/precache-manifest.132e06a7a2fba1445a1db2b45a69eb90.js",
     "service-worker.js": "/35fit/service-worker.js",
     "static/css/main.3a392788.chunk.css.map": "/35fit/static/css/main.3a392788.chunk.css.map",
     "static/media/index.css": "/35fit/static/media/pattern_bg_4_1.38920e90.png",
@@ -57,6 +57,6 @@
     "static/js/runtime-main.0a487638.js",
     "static/js/3.37ec26f2.chunk.js",
     "static/css/main.3a392788.chunk.css",
-    "static/js/main.6c22d6be.chunk.js"
+    "static/js/main.b6be7788.chunk.js"
   ]
 }

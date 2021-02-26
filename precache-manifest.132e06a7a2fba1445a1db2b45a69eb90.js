@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cb050c22c7465a072ab23ec9d280e0fe",
+    "revision": "2aa4316ad8258241673ad98837a24b1e",
     "url": "/35fit/index.html"
   },
   {
-    "revision": "b02fe02a68f7a42081e0",
+    "revision": "4f622737499bd0dcba57",
     "url": "/35fit/static/css/main.3a392788.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/35fit/static/js/3.37ec26f2.chunk.js"
   },
   {
-    "revision": "b02fe02a68f7a42081e0",
-    "url": "/35fit/static/js/main.6c22d6be.chunk.js"
+    "revision": "4f622737499bd0dcba57",
+    "url": "/35fit/static/js/main.b6be7788.chunk.js"
   },
   {
     "revision": "4d426b31bdb47dd0dd32",
